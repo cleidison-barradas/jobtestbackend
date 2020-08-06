@@ -1,5 +1,5 @@
 import Category from '../models/Category';
-
+import Product from '../models/Product';
 class CategoryController {
   async index(req, res) {
     const { textsearch } = req.query;
@@ -31,9 +31,13 @@ class CategoryController {
 
   async delete(req, res) {
     const category = await Category.deleteOne({ _id: req.params.id });
+    const productCategorExists = Product.findById( req.params.id);
 
     if (!category) {
       return res.status(400).json({ error: 'Category does not exists' });
+    }
+    if (productCategorExists) {
+      return res.status(400).json({error: 'Not permited delete categories with products regsitred'});
     }
     return res.status(200).json();
   }
