@@ -29,5 +29,20 @@ class UserController {
       return res.status(400).json({ error: error.message});
     }
   }
+  async delete(req, res) { 
+    try {
+      const { id } = req.params;
+
+      const userExists = User.findById(id);
+
+      if (!userExists) {
+        return res.status(400).json({ error: 'user does not exists'});
+      }
+      await userExists.deleteOne(id);
+
+    } catch (error) {
+      return res.status(400).json({ error: error.message});
+    }
+  }
 }
 export default new UserController();
