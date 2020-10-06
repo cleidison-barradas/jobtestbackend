@@ -27,7 +27,6 @@ routes.post('/categories', CategoryController.store);
 routes.put('/categories/:id', CategoryController.update);
 routes.delete(
   '/categories/:id',
-  checkCategoryExists,
   CategoryController.delete
 );
 
