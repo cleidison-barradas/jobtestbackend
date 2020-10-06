@@ -2,9 +2,6 @@ import { Router } from 'express';
 
 import AuthMiddleware from './app/middlewares/auth';
 import CheckUserExist from './app/middlewares/checkUserExist';
-import CheckMarkExist from './app/middlewares/checkMarkExists';
-import checkCategoryExists from './app/middlewares/checkCategoryExists';
-
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import BrandController from './app/controllers/MarkController';
@@ -23,7 +20,7 @@ routes.use(AuthMiddleware);
 routes.get('/marks', BrandController.index);
 routes.post('/marks', BrandController.store);
 routes.put('/marks/:id', BrandController.update);
-routes.delete('/marks/:id', CheckMarkExist, BrandController.delete);
+routes.delete('/marks/:id', BrandController.delete);
 
 routes.get('/categories', CategoryController.index);
 routes.post('/categories', CategoryController.store);
