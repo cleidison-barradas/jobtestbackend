@@ -27,10 +27,14 @@ class NotificationController {
     const { referenceId } = req.params;
     try {
 
-      const Notify = await Notification.findById(referenceId);
+      if (referenceId) {
 
-      if (Notify) {
-        return res.json({ notification: Notify })
+        const Notify = await Notification.findOne({referenceId})
+        
+          return res.json({ notification: Notify })
+
+      } else {
+        return res.status(401).json({ error: 'id not provided '})      
       }
       
     } catch (error) {
