@@ -22,5 +22,23 @@ class NotificationController {
       return res.json(error);
     }
   }
+
+  async show(req, res) {
+    const { referenceId } = req.params;
+    try {
+
+      const Notify = await Notification.findById(referenceId);
+
+      if (Notify) {
+        return res.json({ notification: Notify })
+      }
+      
+    } catch (error) {
+      console.log(error)
+      return res.status(500).json({ error: 'Internal error'})
+      
+    }
+  }
+
 }
 export default new NotificationController();

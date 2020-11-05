@@ -14,6 +14,7 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 routes.post('/users', CheckUserExist, UserController.store);
 routes.post('/callback', NotificationController.index);
+routes.get('/picpay-callback/:referenceId',NotificationController.show);
 
 routes.use(AuthMiddleware);
 
