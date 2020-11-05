@@ -16,7 +16,7 @@ routes.post('/users', CheckUserExist, UserController.store);
 routes.post('/callback', NotificationController.index);
 routes.get('/picpay-callback/:referenceId',NotificationController.show);
 
-routes.use(AuthMiddleware);
+//routes.use(AuthMiddleware);
 
 routes.get('/marks', BrandController.index);
 routes.post('/marks', BrandController.store);
