@@ -5,7 +5,7 @@ class NotificationController {
     try {
       const { referenceId, authorizationId } = req.body;
       res.headers = {
-        'x-seller-token': '4ee3b098-3cd2-4b58-9ba5-d5583d04e933',
+        'x-seller-token': 'b82bdec1-b82d-4d27-a8c1-ea69e6e56540',
       };
 
       const response = {
