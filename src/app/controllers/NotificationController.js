@@ -1,5 +1,4 @@
 import Notification from '../models/Notification';
-const Notify = require('../../utils/api-notification');
 
 class NotificationController {
   async index(req, res) {
@@ -13,8 +12,6 @@ class NotificationController {
         referenceId,
         authorizationId,
       });
-
-     await Notify.notification(referenceId, authorizationId);
 
       return res.json({}).status(200);
     } catch (error) {
