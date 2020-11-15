@@ -8,7 +8,6 @@ const NotificationShema = new mongoose.Schema(
     },
     authorizationId: {
       type: String,
-      required: true,
     },
     author: {
       type: String,
